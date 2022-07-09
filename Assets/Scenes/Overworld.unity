@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 862272424}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -399,6 +399,7 @@ GameObject:
   - component: {fileID: 958369561}
   - component: {fileID: 958369563}
   - component: {fileID: 958369560}
+  - component: {fileID: 958369565}
   - component: {fileID: 958369559}
   - component: {fileID: 958369558}
   - component: {fileID: 958369564}
@@ -514,7 +515,19 @@ MonoBehaviour:
     m_ActionId: eb7586a6-84ea-41ad-a88d-fa91c28a31bb
     m_ActionName: Player/Jump[/Keyboard/space,/Keyboard/c]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 958369565}
+        m_TargetAssemblyTypeName: GrabObject, Assembly-CSharp
+        m_MethodName: Grab
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 37a1aafa-26c7-4446-a99b-bf536410841f
     m_ActionName: Player/DialogueNext[/Keyboard/u]
   m_NeverAutoSwitchControlSchemes: 0
@@ -632,6 +645,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &958369565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958369557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b8b31dc09136b46b26a20f19508b18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrabRange: {fileID: 1550039205}
+  Enemy: {fileID: 862272423}
+  CarriedObject: {fileID: 2120729430}
+  animator: {fileID: 958369564}
 --- !u!1 &1501701670
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,7 +783,7 @@ GameObject:
   - component: {fileID: 1550039206}
   - component: {fileID: 1550039207}
   m_Layer: 0
-  m_Name: ObjectToCarry
+  m_Name: GrabRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -832,7 +861,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2120729430}
   m_Layer: 0
-  m_Name: ObjectToGrab
+  m_Name: CarriedObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
