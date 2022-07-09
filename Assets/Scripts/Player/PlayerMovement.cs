@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float speed = 8f;
 
+
     [SerializeField]
     private float jumpingPower = 16f;
 
@@ -39,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        
 
         if (!_isFacingRight && horizontal > 0f)
         {
@@ -86,9 +88,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        horizontal = context.ReadValue<Vector2>().x;
-        
+        horizontal = context.ReadValue<Vector2>().x * speed;
+        animator.SetFloat("Speed", Mathf.Abs(horizontal));
+
         //Make the animation move
+
+
 
         //Play footstep sound while moving
     }

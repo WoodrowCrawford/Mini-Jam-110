@@ -46,7 +46,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""DialogueNext"",
+                    ""name"": ""Pick Up Object"",
                     ""type"": ""Button"",
                     ""id"": ""37a1aafa-26c7-4446-a99b-bf536410841f"",
                     ""expectedControlType"": ""Button"",
@@ -246,11 +246,11 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f1621947-534e-44de-8808-528752f09faa"",
-                    ""path"": ""<Keyboard>/u"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""DialogueNext"",
+                    ""action"": ""Pick Up Object"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -263,7 +263,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_DialogueNext = m_Player.FindAction("DialogueNext", throwIfNotFound: true);
+        m_Player_PickUpObject = m_Player.FindAction("Pick Up Object", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -325,14 +325,14 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Jump;
-    private readonly InputAction m_Player_DialogueNext;
+    private readonly InputAction m_Player_PickUpObject;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
         public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputAction @DialogueNext => m_Wrapper.m_Player_DialogueNext;
+        public InputAction @PickUpObject => m_Wrapper.m_Player_PickUpObject;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -348,9 +348,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @DialogueNext.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDialogueNext;
-                @DialogueNext.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDialogueNext;
-                @DialogueNext.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDialogueNext;
+                @PickUpObject.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickUpObject;
+                @PickUpObject.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickUpObject;
+                @PickUpObject.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickUpObject;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -361,9 +361,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @DialogueNext.started += instance.OnDialogueNext;
-                @DialogueNext.performed += instance.OnDialogueNext;
-                @DialogueNext.canceled += instance.OnDialogueNext;
+                @PickUpObject.started += instance.OnPickUpObject;
+                @PickUpObject.performed += instance.OnPickUpObject;
+                @PickUpObject.canceled += instance.OnPickUpObject;
             }
         }
     }
@@ -372,6 +372,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnDialogueNext(InputAction.CallbackContext context);
+        void OnPickUpObject(InputAction.CallbackContext context);
     }
 }
