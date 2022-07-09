@@ -530,6 +530,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 37a1aafa-26c7-4446-a99b-bf536410841f
     m_ActionName: Player/DialogueNext[/Keyboard/u]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 958369557}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e34c7221-4141-4fd5-9da2-a31e39960b37
+    m_ActionName: Player/Throw Object[/Keyboard/e,/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -658,9 +674,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GrabRange: {fileID: 1550039205}
-  Enemy: {fileID: 862272423}
+  Enemy: {fileID: 862272424}
   CarriedObject: {fileID: 2120729430}
   animator: {fileID: 958369564}
+  _throwPower: 2
 --- !u!1 &1501701670
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,7 +892,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120729429}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.096, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

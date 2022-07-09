@@ -29,7 +29,16 @@
                     "id": "37a1aafa-26c7-4446-a99b-bf536410841f",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(behavior=2)",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Throw Object",
+                    "type": "Button",
+                    "id": "e34c7221-4141-4fd5-9da2-a31e39960b37",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)",
                     "initialStateCheck": false
                 }
             ],
@@ -229,6 +238,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pick Up Object",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9bfbfde4-b463-4f65-b2eb-448f95feb243",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pick Up Object",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aa4de484-5569-40bc-85cf-6324bced486e",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw Object",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "edf63007-1086-431a-a4b3-47e4022fbf11",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw Object",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

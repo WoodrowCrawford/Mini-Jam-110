@@ -8,11 +8,15 @@ public class GrabObject : MonoBehaviour
 {
 
     public GameObject GrabRange;
-    public GameObject Enemy;
+    public Rigidbody2D Enemy;
 
     public Transform CarriedObject;
 
     public Animator animator;
+
+
+    [SerializeField]
+    private float _throwPower = 2.0f;
 
     private bool _grab = false; //used when the player is pressing the grab button
     private bool _canGrab = false; //used to check if the player can grab
@@ -27,22 +31,55 @@ public class GrabObject : MonoBehaviour
         }
     }
 
+
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Enemy"))
+        {
+            _canGrab = false;
+            Debug.Log("can No longer grab");
+        }
+    }
     public void Grab(InputAction.CallbackContext context)
     {
         if (context.performed && _canGrab)
         {
             _grab = true;
-            animator.SetBool("Grab", true);
-
-
+           
+            animator.Play("Cultist_Lift_Anim");
+    
             Enemy.transform.position = CarriedObject.transform.position;
-            Debug.Log("grab true");
+            Debug.Log("I am grabbing now");
+
+           
         }
-        else if(context.canceled)
+        else
         {
+            
             _grab = false;
+
             animator.SetBool("Grab", false);
-            Debug.Log("grab false");
+            Enemy.AddForce(transform.up * _throwPower);
+
+
+            Debug.Log("not grabbing");
+        }
+       
+    }
+
+
+    
+
+    public void Update()
+    {
+        //Update the location of the carried object
+        if(_grab)
+        {
+            Enemy.transform.position = CarriedObject.transform.position;
+             
         }
     }
+
+    
 }

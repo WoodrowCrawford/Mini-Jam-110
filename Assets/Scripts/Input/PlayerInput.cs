@@ -51,7 +51,16 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""id"": ""37a1aafa-26c7-4446-a99b-bf536410841f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)"",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Throw Object"",
+                    ""type"": ""Button"",
+                    ""id"": ""e34c7221-4141-4fd5-9da2-a31e39960b37"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""initialStateCheck"": false
                 }
             ],
@@ -253,6 +262,39 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Pick Up Object"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9bfbfde4-b463-4f65-b2eb-448f95feb243"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pick Up Object"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aa4de484-5569-40bc-85cf-6324bced486e"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throw Object"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""edf63007-1086-431a-a4b3-47e4022fbf11"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throw Object"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -264,6 +306,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_PickUpObject = m_Player.FindAction("Pick Up Object", throwIfNotFound: true);
+        m_Player_ThrowObject = m_Player.FindAction("Throw Object", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -326,6 +369,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_PickUpObject;
+    private readonly InputAction m_Player_ThrowObject;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -333,6 +377,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @PickUpObject => m_Wrapper.m_Player_PickUpObject;
+        public InputAction @ThrowObject => m_Wrapper.m_Player_ThrowObject;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -351,6 +396,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @PickUpObject.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickUpObject;
                 @PickUpObject.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickUpObject;
                 @PickUpObject.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickUpObject;
+                @ThrowObject.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrowObject;
+                @ThrowObject.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrowObject;
+                @ThrowObject.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrowObject;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -364,6 +412,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @PickUpObject.started += instance.OnPickUpObject;
                 @PickUpObject.performed += instance.OnPickUpObject;
                 @PickUpObject.canceled += instance.OnPickUpObject;
+                @ThrowObject.started += instance.OnThrowObject;
+                @ThrowObject.performed += instance.OnThrowObject;
+                @ThrowObject.canceled += instance.OnThrowObject;
             }
         }
     }
@@ -373,5 +424,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnPickUpObject(InputAction.CallbackContext context);
+        void OnThrowObject(InputAction.CallbackContext context);
     }
 }
