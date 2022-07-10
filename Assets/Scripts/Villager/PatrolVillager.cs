@@ -1,16 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PatrolBehavior : MonoBehaviour
+public class PatrolVillager : MonoBehaviour
 {
-    [Header ("Patrol Points")]
+    [Header("Patrol Points")]
     [SerializeField]
     private Transform leftEdge;
     [SerializeField]
     private Transform rightEdge;
 
-    [Header("Enemy")]
+    [Header("Villager")]
     [SerializeField]
-    private Transform enemy;
+    private Transform villager;
 
     [Header("Movement parameters")]
     [SerializeField]
@@ -26,15 +28,15 @@ public class PatrolBehavior : MonoBehaviour
 
     private void Awake()
     {
-        initScale = enemy.localScale;
+        initScale = villager.localScale;
     }
 
 
     private void Update()
     {
-        if(movingLeft)
+        if (movingLeft)
         {
-            if(enemy.position.x >= leftEdge.position.x)
+            if (villager.position.x >= leftEdge.position.x)
             {
                 MoveInDirection(-1);
 
@@ -47,7 +49,7 @@ public class PatrolBehavior : MonoBehaviour
         }
         else
         {
-            if(enemy.position.x <= rightEdge.position.x)
+            if (villager.position.x <= rightEdge.position.x)
             {
                 MoveInDirection(1);
             }
@@ -74,10 +76,11 @@ public class PatrolBehavior : MonoBehaviour
         animator.SetBool("move", true);
 
         //Make enemy face direction
-        enemy.localScale = new Vector3(Mathf.Abs( initScale.x) * _direction, initScale.y, initScale.z);
+        villager.localScale = new Vector3(Mathf.Abs(initScale.x) * _direction, initScale.y, initScale.z);
 
         //Move in that direction
-        enemy.position = new Vector3(enemy.position.x + Time.deltaTime * _direction * speed,
-           enemy.position.y, enemy.position.z);
+        villager.position = new Vector3(villager.position.x + Time.deltaTime * _direction * speed,
+           villager.position.y, villager.position.z);
     }
 }
+

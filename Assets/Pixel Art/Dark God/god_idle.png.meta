@@ -143,10 +143,10 @@ TextureImporter:
       name: god_idle_0
       rect:
         serializedVersion: 2
-        x: 22
+        x: 0
         y: 0
-        width: 138
-        height: 85
+        width: 192
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,10 +164,10 @@ TextureImporter:
       name: god_idle_1
       rect:
         serializedVersion: 2
-        x: 159
+        x: 192
         y: 0
-        width: 29
-        height: 9
+        width: 192
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,10 +185,10 @@ TextureImporter:
       name: god_idle_2
       rect:
         serializedVersion: 2
-        x: 214
+        x: 384
         y: 0
-        width: 138
-        height: 85
+        width: 192
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +206,10 @@ TextureImporter:
       name: god_idle_3
       rect:
         serializedVersion: 2
-        x: 351
+        x: 576
         y: 0
-        width: 29
-        height: 9
+        width: 192
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,90 +219,6 @@ TextureImporter:
       bones: []
       spriteID: e22c0cc8abf9a2140977947076f54e4b
       internalID: 897180699
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: god_idle_4
-      rect:
-        serializedVersion: 2
-        x: 406
-        y: 0
-        width: 138
-        height: 85
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d93b9ce4728cfba42b3bafa861de5184
-      internalID: 594331378
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: god_idle_5
-      rect:
-        serializedVersion: 2
-        x: 543
-        y: 0
-        width: 29
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 66c54af81a9be8c49818ffad2583260c
-      internalID: -146170992
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: god_idle_6
-      rect:
-        serializedVersion: 2
-        x: 598
-        y: 0
-        width: 138
-        height: 85
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8a363d5cb7e74384cbd2e564af58f78a
-      internalID: -866804715
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: god_idle_7
-      rect:
-        serializedVersion: 2
-        x: 735
-        y: 0
-        width: 29
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d8922f1485115444b74ea3b30675e57
-      internalID: -1068229854
       vertices: []
       indices: 
       edges: []
@@ -318,14 +234,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      god_idle_7: -1068229854
       god_idle_2: 944634705
       god_idle_3: 897180699
       god_idle_0: 903479156
       god_idle_1: -583703222
-      god_idle_5: -146170992
-      god_idle_6: -866804715
-      god_idle_4: 594331378
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

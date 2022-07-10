@@ -8,6 +8,8 @@ public class GrabObject : MonoBehaviour
 {
     public Animator animator;
 
+
+
     public Transform grabDetect;
     public Transform boxHolder;
     public float rayDistance;
@@ -16,10 +18,11 @@ public class GrabObject : MonoBehaviour
     {
         RaycastHit2D grabCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, rayDistance);
 
-        if(grabCheck.collider != null && grabCheck.collider.tag == "Enemy")
+        if(grabCheck.collider != null && grabCheck.collider.tag == "Villager")
         {
             if (Mouse.current.leftButton.isPressed)
             {
+      
                 grabCheck.collider.gameObject.transform.parent = boxHolder;
                 grabCheck.collider.gameObject.transform.position = boxHolder.position;
                 grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
@@ -28,6 +31,7 @@ public class GrabObject : MonoBehaviour
 
             else
             {
+           
                 grabCheck.collider.gameObject.transform.parent = null;
                 grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
             }
