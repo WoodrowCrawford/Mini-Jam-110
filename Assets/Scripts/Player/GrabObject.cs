@@ -8,7 +8,9 @@ public class GrabObject : MonoBehaviour
 {
 
     public GameObject GrabRange;
-    public Rigidbody2D Enemy;
+    public GameObject EnemyToGrab = null; //this is to check which enemy is grabbed
+
+    public Rigidbody2D EnemyGrabbed;
 
     public Transform CarriedObject;
 
@@ -28,6 +30,7 @@ public class GrabObject : MonoBehaviour
         {
             Debug.Log("Can grab");
             _canGrab = true;
+            EnemyToGrab = collision.gameObject;
         }
     }
 
@@ -38,9 +41,13 @@ public class GrabObject : MonoBehaviour
         if(collision.CompareTag("Enemy"))
         {
             _canGrab = false;
+            EnemyToGrab = null;
             Debug.Log("can No longer grab");
         }
     }
+
+
+
     public void Grab(InputAction.CallbackContext context)
     {
         if (context.performed && _canGrab)
@@ -49,7 +56,7 @@ public class GrabObject : MonoBehaviour
            
             animator.Play("Cultist_Lift_Anim");
     
-            Enemy.transform.position = CarriedObject.transform.position;
+            EnemyToGrab.transform.position = CarriedObject.transform.position;
             Debug.Log("I am grabbing now");
 
            
@@ -61,8 +68,9 @@ public class GrabObject : MonoBehaviour
 
             if (_grab)
             {
+               
                 _grab = false;
-                Enemy.AddForce(new Vector2(_throwPower, 60), ForceMode2D.Impulse);
+                EnemyGrabbed.AddForce(new Vector2(_throwPower, 60), ForceMode2D.Impulse);
             }
             animator.SetBool("Grab", false);
 
@@ -81,7 +89,7 @@ public class GrabObject : MonoBehaviour
         //Update the location of the carried object
         if(_grab)
         {
-            Enemy.transform.position = CarriedObject.transform.position;
+           EnemyGrabbed.transform.position = CarriedObject.transform.position;
              
         }
     }
