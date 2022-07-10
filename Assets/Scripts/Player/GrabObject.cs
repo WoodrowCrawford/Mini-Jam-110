@@ -57,12 +57,17 @@ public class GrabObject : MonoBehaviour
         else
         {
             
-            _grab = false;
+           
 
+            if (_grab)
+            {
+                _grab = false;
+                Enemy.AddForce(new Vector2(_throwPower, 60), ForceMode2D.Impulse);
+            }
             animator.SetBool("Grab", false);
-            Enemy.AddForce(transform.up * _throwPower);
 
 
+            _grab = false;
             Debug.Log("not grabbing");
         }
        

@@ -677,7 +677,7 @@ MonoBehaviour:
   Enemy: {fileID: 862272424}
   CarriedObject: {fileID: 2120729430}
   animator: {fileID: 958369564}
-  _throwPower: 2
+  _throwPower: 0
 --- !u!1 &1501701670
 GameObject:
   m_ObjectHideFlags: 0
