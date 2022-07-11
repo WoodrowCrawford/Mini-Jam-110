@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HurtPlayer : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class HurtPlayer : MonoBehaviour
     {
         if (collision.collider.gameObject.tag == ("Player"))
         {
+            SceneManager.LoadScene("Overworld");
             Debug.Log("I hit you");
         }
 

@@ -143,10 +143,10 @@ TextureImporter:
       name: god_chewing_0
       rect:
         serializedVersion: 2
-        x: 21
+        x: 8
         y: 0
-        width: 168
-        height: 99
+        width: 192
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,10 +164,10 @@ TextureImporter:
       name: god_chewing_1
       rect:
         serializedVersion: 2
-        x: 214
+        x: 200
         y: 0
-        width: 166
-        height: 92
+        width: 192
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,10 +185,10 @@ TextureImporter:
       name: god_chewing_2
       rect:
         serializedVersion: 2
-        x: 405
+        x: 392
         y: 0
-        width: 168
-        height: 91
+        width: 192
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +206,10 @@ TextureImporter:
       name: god_chewing_3
       rect:
         serializedVersion: 2
-        x: 597
+        x: 584
         y: 0
-        width: 168
-        height: 82
+        width: 192
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,10 +227,10 @@ TextureImporter:
       name: god_chewing_4
       rect:
         serializedVersion: 2
-        x: 790
+        x: 776
         y: 0
-        width: 166
-        height: 99
+        width: 192
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,10 +248,10 @@ TextureImporter:
       name: god_chewing_5
       rect:
         serializedVersion: 2
-        x: 981
+        x: 968
         y: 0
-        width: 168
-        height: 92
+        width: 192
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,10 +269,10 @@ TextureImporter:
       name: god_chewing_6
       rect:
         serializedVersion: 2
-        x: 1173
+        x: 1160
         y: 0
-        width: 168
-        height: 91
+        width: 192
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,10 +290,10 @@ TextureImporter:
       name: god_chewing_7
       rect:
         serializedVersion: 2
-        x: 1366
+        x: 1352
         y: 0
-        width: 166
-        height: 82
+        width: 192
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -311,10 +311,10 @@ TextureImporter:
       name: god_chewing_8
       rect:
         serializedVersion: 2
-        x: 1557
+        x: 1544
         y: 0
-        width: 168
-        height: 99
+        width: 192
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,10 +332,10 @@ TextureImporter:
       name: god_chewing_9
       rect:
         serializedVersion: 2
-        x: 1749
+        x: 1736
         y: 0
-        width: 168
-        height: 92
+        width: 192
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -353,10 +353,10 @@ TextureImporter:
       name: god_chewing_10
       rect:
         serializedVersion: 2
-        x: 1942
+        x: 1928
         y: 0
-        width: 166
-        height: 91
+        width: 192
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -379,7 +379,7 @@ TextureImporter:
         width: 168
         height: 82
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -7,7 +7,9 @@ using UnityEngine.Audio;
 public class PlayerMovement : MonoBehaviour
 {
     //The rigidbody for the player
-    public Rigidbody2D rb; 
+    public Rigidbody2D rb;
+
+
 
     //Ground Check for player
     public Transform groundCheck;
@@ -95,6 +97,6 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        //Play footstep sound while moving
+       
     }
 }
