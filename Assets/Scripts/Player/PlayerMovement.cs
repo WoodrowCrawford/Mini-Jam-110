@@ -52,6 +52,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
+
+        if(Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+          
+        }
     }
     
 
@@ -99,4 +104,12 @@ public class PlayerMovement : MonoBehaviour
 
        
     }
+
+    public void Quit(InputAction.CallbackContext context)
+    {
+        Application.Quit();
+    }
+
+
+   
 }
