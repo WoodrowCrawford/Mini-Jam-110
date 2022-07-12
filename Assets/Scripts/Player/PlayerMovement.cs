@@ -6,36 +6,50 @@ using UnityEngine.Audio;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //The rigidbody for the player
+
     public Rigidbody2D rb;
 
-
-
-    //Ground Check for player
     public Transform groundCheck;
 
-    //What layer the player will check for
     public LayerMask groundLayer;
 
     public Animator animator;
-
 
     private float horizontal;
 
     [SerializeField]
     private float speed = 8f;
 
-
     [SerializeField]
     private float jumpingPower = 16f;
 
     private bool _isFacingRight = true;
 
+    private string currentState;
+
+
+    //Animation States
+    const string CULTIST_ATTACK = "Cultist_Attack_Anim";
+    const string CULTIST_DEATH = "Cultist_Death_Anim";
+    const string CULTIST_HIT = "Cultist_Hit_Anim";
+    const string CULTIST_IDLE = "Cultist_Idle_Animation";
+    const string CULTIST_IDLE_LIFT = "Cultist_Idle_Lift_Anim";
+    const string CULTIST_LIFT = "Cultist_Lift_Anim";
+    const string CULTIST_RUN = "Cultist_Run_Animation";
+    const string CULTIST_RUN_CARRY = "Cultist_Run_Carry_Anim";
+    const string CULTIST_THROW = "Cultist_Throw_Anim";
+    const string CULTIST_WALK = "Cultist_Walk_Animation";
+    const string CULTIST_WALK_CARRY = "Cultist_Walk_Carry_Anim";
+    const string CULTIST_JUMP = "Cultist_Jump";
+    const string CULTIST_JUMP_CARRY = "Cultist_Jump_Carrying";
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
+        ChangeAnimationState(CULTIST_IDLE);  
     }
 
     // Update is called once per frame
@@ -52,19 +66,26 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
-
-        if(Keyboard.current.escapeKey.wasPressedThisFrame)
-        {
-          
-        }
     }
-    
 
-    private bool IsGrounded()
+
+    public void ChangeAnimationState(string newState)
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        //stop the same animation from interrupting itself
+        if (currentState == newState)
+        {
+            return;
+        }
 
+        //play the animation
+        animator.Play(newState);
+
+        //reassign the current state
+        currentState = newState;
     }
+
+
+    
     
     public void Jump(InputAction.CallbackContext context)
     {
@@ -74,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
             //Play jumping animation
 
+
             //Play jumping sound
         }
 
@@ -82,8 +104,10 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
 
             //Play falling animation
+
         }
     }
+
 
     private void Flip()
     {
@@ -93,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = localScale;
     }
 
+
     public void Move(InputAction.CallbackContext context)
     {
         horizontal = context.ReadValue<Vector2>().x * speed;
@@ -101,9 +126,8 @@ public class PlayerMovement : MonoBehaviour
         //Make the animation move
 
 
-
-       
     }
+
 
     public void Quit(InputAction.CallbackContext context)
     {
@@ -111,5 +135,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+
+    }
    
 }

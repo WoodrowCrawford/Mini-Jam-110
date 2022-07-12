@@ -7275,9 +7275,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9da03d05b53bbe48bbf175c7d7c95ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ateVillager: 0
   currentVillager: {fileID: 0}
   DarkGodAnim: {fileID: 1484209608}
+  ateVillager: 0
+  _isChewing: 0
 --- !u!61 &1484209612
 BoxCollider2D:
   m_ObjectHideFlags: 0
