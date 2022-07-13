@@ -24,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
     private float jumpingPower = 16f;
 
     private bool _isFacingRight = true;
+    private bool _isMoving = false;
+    private bool _isCarrying = false;
+    private bool _isJumping = false;
 
     private string currentState;
 
@@ -65,6 +68,17 @@ public class PlayerMovement : MonoBehaviour
         else if(_isFacingRight && horizontal < 0f)
         {
             Flip();
+        }
+
+
+        /////////Changes animation states for moving
+        if (_isMoving && IsGrounded())
+        {
+            ChangeAnimationState(CULTIST_RUN);
+        }
+        else if(!_isMoving && IsGrounded())
+        {
+            ChangeAnimationState(CULTIST_IDLE);
         }
     }
 
@@ -120,12 +134,17 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
+        _isMoving = true;
         horizontal = context.ReadValue<Vector2>().x * speed;
-        animator.SetFloat("Speed", Mathf.Abs(horizontal));
+        
 
         //Make the animation move
 
-
+        //What happens if the button was released
+        if(context.canceled)
+        {
+            _isMoving = false;
+        }    
     }
 
 
