@@ -8,11 +8,12 @@ public class GrabObject : MonoBehaviour
 {
     public Animator animator;
 
-
-
     public Transform grabDetect;
     public Transform boxHolder;
+
     public float rayDistance;
+
+    public bool hasGrabbedVillager = false;
 
     private void Update()
     {
@@ -22,7 +23,8 @@ public class GrabObject : MonoBehaviour
         {
             if (Mouse.current.leftButton.isPressed)
             {
-      
+                hasGrabbedVillager = true;
+
                 grabCheck.collider.gameObject.transform.parent = boxHolder;
                 grabCheck.collider.gameObject.transform.position = boxHolder.position;
                 grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
@@ -31,7 +33,8 @@ public class GrabObject : MonoBehaviour
 
             else
             {
-           
+                hasGrabbedVillager = false;
+
                 grabCheck.collider.gameObject.transform.parent = null;
                 grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
             }

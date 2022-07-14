@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animator;
 
+    private GrabObject grabObject;
     private float horizontal;
 
     [SerializeField]
@@ -25,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool _isFacingRight = true;
     private bool _isMoving = false;
-    private bool _isCarrying = false;
     private bool _isJumping = false;
 
     private string currentState;
@@ -51,8 +51,11 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        grabObject = GetComponent<GrabObject>();
         animator = GetComponent<Animator>();
         ChangeAnimationState(CULTIST_IDLE);  
+        
+        
     }
 
     // Update is called once per frame
