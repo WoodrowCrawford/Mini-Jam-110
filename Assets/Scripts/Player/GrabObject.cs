@@ -11,10 +11,14 @@ public class GrabObject : MonoBehaviour
     public Transform grabDetect;
     public Transform boxHolder;
 
+
     public float rayDistance;
 
     public bool hasGrabbedVillager = false;
 
+
+
+   
     private void Update()
     {
         RaycastHit2D grabCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, rayDistance);

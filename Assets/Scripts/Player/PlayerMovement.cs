@@ -8,14 +8,13 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public Rigidbody2D rb;
-
     public Transform groundCheck;
-
-    public LayerMask groundLayer;
-
     public Animator animator;
 
     private GrabObject grabObject;
+
+    public LayerMask groundLayer;
+
     private float horizontal;
 
     [SerializeField]
@@ -48,7 +47,6 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-    // Start is called before the first frame update
     void Start()
     {
         grabObject = GetComponent<GrabObject>();
@@ -58,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
@@ -109,30 +106,14 @@ public class PlayerMovement : MonoBehaviour
         if(context.performed && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-
-            //Play jumping animation
-
-
-            //Play jumping sound
         }
 
         if (context.canceled && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-
-            //Play falling animation
-
         }
     }
 
-
-    private void Flip()
-    {
-        _isFacingRight = !_isFacingRight;
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1f;
-        transform.localScale = localScale;
-    }
 
 
     public void Move(InputAction.CallbackContext context)
@@ -140,9 +121,6 @@ public class PlayerMovement : MonoBehaviour
         _isMoving = true;
         horizontal = context.ReadValue<Vector2>().x * speed;
         
-
-        //Make the animation move
-
         //What happens if the button was released
         if(context.canceled)
         {
@@ -156,6 +134,15 @@ public class PlayerMovement : MonoBehaviour
         Application.Quit();
     }
 
+
+
+    private void Flip()
+    {
+        _isFacingRight = !_isFacingRight;
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1f;
+        transform.localScale = localScale;
+    }
 
     private bool IsGrounded()
     {

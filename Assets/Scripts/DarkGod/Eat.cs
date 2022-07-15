@@ -8,12 +8,15 @@ public class Eat : MonoBehaviour
     public GameObject currentVillager = null;
     public Animator DarkGodAnim;
 
-    public bool ateVillager = false;
 
-    private float _eatingDelay;
+
+    public bool ateVillager = false;
 
     [SerializeField]
     private bool _isChewing;
+
+
+    private float _eatingDelay;
 
     private string currentState;
 
@@ -24,10 +27,10 @@ public class Eat : MonoBehaviour
 
 
 
-
     private void Start()
     {
         DarkGodAnim = GetComponent<Animator>();
+   
         ChangeAnimationState(DARKGOD_IDLE);
 
     }
@@ -64,9 +67,11 @@ public class Eat : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Villager"))
         {
+       
             _isChewing = true;
             currentVillager = collision.gameObject;
             Destroy(currentVillager);
+
 
         }
     }
@@ -76,6 +81,7 @@ public class Eat : MonoBehaviour
         _eatingDelay = DarkGodAnim.GetCurrentAnimatorStateInfo(0).length;
         Invoke("FinishedEating", _eatingDelay);
         currentVillager = null;
+       
     }
 
 
