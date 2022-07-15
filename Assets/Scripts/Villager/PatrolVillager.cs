@@ -26,11 +26,21 @@ public class PatrolVillager : MonoBehaviour
     private Animator animator;
 
 
+    private string _currentState;
+
     private void Awake()
     {
         initScale = villager.localScale;
     }
 
+
+    //Animations for the villager
+    ////////////////////////////////
+
+    const string FEMALE_VILLAGER_IDLE = "Female Villager_Idle";
+    const string FEMALE_VILLAGER_LIFTED = "Female Villager_Lifted";
+    const string FEMALE_VILLAGER_THROWN = "Female Villager_Thrown";
+    const string FEMALE_VILLAGER_WALK = "Female Villager_Walk";
 
     private void Update()
     {
@@ -39,6 +49,7 @@ public class PatrolVillager : MonoBehaviour
             if (villager.position.x >= leftEdge.position.x)
             {
                 MoveInDirection(-1);
+
 
             }
             else
@@ -62,6 +73,22 @@ public class PatrolVillager : MonoBehaviour
 
         }
 
+    }
+
+
+    public void ChangeAnimationState(string newState)
+    {
+        //stop the same animation from interrupting itself
+        if (_currentState == newState)
+        {
+            return;
+        }
+
+        //play the animation
+        animator.Play(newState);
+
+        //reassign the current state
+        _currentState = newState;
     }
 
 

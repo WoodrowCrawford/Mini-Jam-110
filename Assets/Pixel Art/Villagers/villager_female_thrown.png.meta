@@ -145,7 +145,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
+        width: 65
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -164,9 +164,9 @@ TextureImporter:
       name: villager_female_thrown_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 65
         y: 0
-        width: 48
+        width: 65
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -185,9 +185,9 @@ TextureImporter:
       name: villager_female_thrown_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 130
         y: 0
-        width: 48
+        width: 65
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -198,48 +198,6 @@ TextureImporter:
       bones: []
       spriteID: 5d424d0d7c69f9a4aa8fd03cb72717dc
       internalID: -1148245281
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: villager_female_thrown_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 417dd4dc1f372aa47bb71933723eed43
-      internalID: -609425239
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: villager_female_thrown_4
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4e469e1856263664cb0d5e44f501202d
-      internalID: 299114962
       vertices: []
       indices: 
       edges: []
@@ -255,10 +213,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      villager_female_thrown_4: 299114962
       villager_female_thrown_2: -1148245281
       villager_female_thrown_0: -921980307
-      villager_female_thrown_3: -609425239
       villager_female_thrown_1: -280749742
   spritePackingTag: 
   pSDRemoveMatte: 0
