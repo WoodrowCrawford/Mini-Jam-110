@@ -13,3 +13,5 @@ WASD to move
 Spacebar to jump
 Left Mouse Click to grab a villager
 
+## Download link
+https://pheonyxgames.itch.io/the-village-of-sacrifice
