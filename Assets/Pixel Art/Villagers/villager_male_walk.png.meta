@@ -143,10 +143,10 @@ TextureImporter:
       name: villager_male_walk_0
       rect:
         serializedVersion: 2
-        x: 19
+        x: 0
         y: 0
-        width: 11
-        height: 16
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,10 +164,10 @@ TextureImporter:
       name: villager_male_walk_1
       rect:
         serializedVersion: 2
-        x: 67
+        x: 48
         y: 0
-        width: 11
-        height: 16
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,7 +190,7 @@ TextureImporter:
         width: 11
         height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -206,10 +206,10 @@ TextureImporter:
       name: villager_male_walk_3
       rect:
         serializedVersion: 2
-        x: 163
+        x: 96
         y: 0
-        width: 11
-        height: 16
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,10 +227,10 @@ TextureImporter:
       name: villager_male_walk_4
       rect:
         serializedVersion: 2
-        x: 210
+        x: 192
         y: 0
-        width: 12
-        height: 16
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,10 +248,10 @@ TextureImporter:
       name: villager_male_walk_5
       rect:
         serializedVersion: 2
-        x: 258
+        x: 240
         y: 0
-        width: 13
-        height: 15
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,6 +261,27 @@ TextureImporter:
       bones: []
       spriteID: 49a643fc0c0d1d146bd937413d9c5577
       internalID: 1853483017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: villager_male_walk_6
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50cafcbaee1fb94429a78f2d50893dfd
+      internalID: 850374456
       vertices: []
       indices: 
       edges: []
@@ -279,6 +300,7 @@ TextureImporter:
       villager_male_walk_4: -1632595852
       villager_male_walk_5: 1853483017
       villager_male_walk_0: 1560298666
+      villager_male_walk_6: 850374456
       villager_male_walk_3: 1523568167
       villager_male_walk_2: -1893904296
       villager_male_walk_1: 1727430331
