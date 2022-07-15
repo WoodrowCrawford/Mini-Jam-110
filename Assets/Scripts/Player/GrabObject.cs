@@ -35,6 +35,7 @@ public class GrabObject : MonoBehaviour
             {
                 hasGrabbedVillager = false;
 
+                
                 grabCheck.collider.gameObject.transform.parent = null;
                 grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
             }

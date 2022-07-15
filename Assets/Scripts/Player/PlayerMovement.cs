@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private GrabObject grabObject;
 
     public Rigidbody2D rb;
 
@@ -15,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animator;
 
-    private GrabObject grabObject;
+
     private float horizontal;
 
     [SerializeField]
@@ -27,11 +28,13 @@ public class PlayerMovement : MonoBehaviour
     private bool _isFacingRight = true;
     private bool _isMoving = false;
     private bool _isJumping = false;
+    private bool _isDead = false;
 
     private string currentState;
 
 
     //Animation States
+    //////////////////////////////////////////////////////////
     const string CULTIST_ATTACK = "Cultist_Attack_Anim";
     const string CULTIST_DEATH = "Cultist_Death_Anim";
     const string CULTIST_HIT = "Cultist_Hit_Anim";
@@ -45,43 +48,54 @@ public class PlayerMovement : MonoBehaviour
     const string CULTIST_WALK_CARRY = "Cultist_Walk_Carry_Anim";
     const string CULTIST_JUMP = "Cultist_Jump";
     const string CULTIST_JUMP_CARRY = "Cultist_Jump_Carrying";
-
-
+    
+////////////////////////////////////////////////////////////////////////
 
     // Start is called before the first frame update
     void Start()
     {
         grabObject = GetComponent<GrabObject>();
         animator = GetComponent<Animator>();
-        ChangeAnimationState(CULTIST_IDLE);  
-        
-        
+        ChangeAnimationState(CULTIST_IDLE);
     }
 
     // Update is called once per frame
     void Update()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-        
+
 
         if (!_isFacingRight && horizontal > 0f)
         {
             Flip();
         }
-        else if(_isFacingRight && horizontal < 0f)
+        else if (_isFacingRight && horizontal < 0f)
         {
             Flip();
         }
 
 
-        /////////Changes animation states for moving
-        if (_isMoving && IsGrounded())
+        //ANIMATION CHECKS 
+        
+        //IDLE RUN ANIMATION (NOT CARRYING)
+        if (_isMoving && IsGrounded() && grabObject.hasGrabbedVillager == false)
         {
             ChangeAnimationState(CULTIST_RUN);
         }
-        else if(!_isMoving && IsGrounded())
+        else if (!_isMoving && IsGrounded() && grabObject.hasGrabbedVillager == false)
         {
             ChangeAnimationState(CULTIST_IDLE);
+        }
+
+
+        //IDLE RUN (CARRYING)
+        if (_isMoving && IsGrounded() && grabObject.hasGrabbedVillager == true)
+        {
+            ChangeAnimationState(CULTIST_RUN_CARRY);
+        }
+        else if(!_isMoving && IsGrounded() && grabObject.hasGrabbedVillager == true)
+        {
+            ChangeAnimationState(CULTIST_IDLE_LIFT);
         }
     }
 
@@ -102,7 +116,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    
     
     public void Jump(InputAction.CallbackContext context)
     {
@@ -141,15 +154,12 @@ public class PlayerMovement : MonoBehaviour
         horizontal = context.ReadValue<Vector2>().x * speed;
         
 
-        //Make the animation move
-
         //What happens if the button was released
         if(context.canceled)
         {
             _isMoving = false;
         }    
     }
-
 
     public void Quit(InputAction.CallbackContext context)
     {
@@ -160,7 +170,6 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-
     }
    
 }

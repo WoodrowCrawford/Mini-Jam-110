@@ -26,6 +26,10 @@ public class PatrolVillager : MonoBehaviour
     private Animator animator;
 
 
+    //Animations States
+    /////////////////////////////////////
+    const string VILLAGER_IDLE
+
     private void Awake()
     {
         initScale = villager.localScale;
